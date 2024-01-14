@@ -5,33 +5,39 @@
 
 class Solution {
     public boolean closeStrings(String word1, String word2) {
-        int n1 = word1.length();
-        int n2 = word2.length();
+        int word1_length = word1.length();
+        int word2_length = word2.length();
         
-        if(n1 != n2) return false;
+        if(word1_length != word2_length) return false; // if the size is not equal that means it is not the true
         
-        int[] fq1 = new int[26];
-        int[] fq2 = new int[26];
+        int[] frequency1 = new int[26];
+        int[] frequency2 = new int[26];
+       // storing the frequency of alphabet
         
-        for(int i=0;i<n1;i++){
-            char c1 = word1.charAt(i);
-            char c2 = word2.charAt(i);
+        for(int loop=0;loop < word1_length;loop++){
+            char character1 = word1.charAt(loop);
+            char character2 = word2.charAt(loop);
+           // iterating over the characters 
             
-            fq1[c1 -'a']++;
-            fq2[c2 -'a']++;
+            frequency1[character1 -'a']++;
+            frequency2[character2 -'a']++;
+           //expression subtracts the ASCII value of the character 'a' from the ASCII value of the character.
         }
         
-        for(int i=0;i<26;i++){
-            if((fq1[i] !=0 && fq2[i] !=0) || (fq1[i] ==0 && fq2[i] == 0))
+        for(int loop=0;loop<26;loop++){
+            if((frequency1[loop] !=0 && frequency2[loop] !=0) || (frequency1[loop] ==0 && frequency2[loop] == 0))
                 continue;
+           // if the iteration follows the conditions then the loop will continue
             
             return false;
         }
         
-        Arrays.sort(fq1);
-        Arrays.sort(fq2);
+        Arrays.sort(frequency1);
+        Arrays.sort(frequency2);
+       // sorting both the array to get the clear form of the strings
         
-        return Arrays.equals(fq1, fq2);
+        return Arrays.equals(frequency1, frequency2);
+        // returning the array
         
         
     }
