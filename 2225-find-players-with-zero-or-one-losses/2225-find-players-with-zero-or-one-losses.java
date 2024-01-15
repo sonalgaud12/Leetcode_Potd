@@ -1,3 +1,9 @@
+/*
+Question link: https://leetcode.com/problems/find-players-with-zero-or-one-losses/
+Time Complexity: O(n*logn)
+Space Complexity: O(n)
+*/
+
 class Solution {
     public List<List<Integer>> findWinners(int[][] matches) {
       Map<Integer, Integer> Lost_Count = new HashMap<>();
@@ -39,3 +45,33 @@ class Solution {
         
     }
 }
+/*
+Question Breakdown: 
+The questions says we will be given an array of matches[i] in which the 0th index will be of winner and !st index will be of loser
+ matches[i] = [winner[i], loser[i]]
+
+In this we have to return two list following the conditions:
+1. List of the players who have not lost an single match
+2. List of the players who have lost exactly one match
+The values in the two lists should be returned in increasing order.
+
+Approach: As we can see we have to maintain the count of the players who never lost or lost excatly onces
+In that case we will just make an map to make a count of the lost players and how many times they have lost
+then we will make two list, one for the winner and one for the players who lost excatly once
+
+As soon we can check in the map of the count we will push back the values in to the given list.
+But what if someone wins the game twice? will to add them in the winner list twice? 
+eg: Input: matches = [[1,3],[2,3],[3,6],[5,6],[5,7],[4,5],[4,8],[4,9],[10,4],[10,9]]
+Output: [[1,2,10],[4,5,7,8]]
+we can see 10 is winning twice but mentioned once in the winner list
+
+Answer: No, to handle this testcase we will just add winning number who occurs twice in the map,
+to excape from the duplicate values.
+ 
+
+
+
+
+
+
+*/
