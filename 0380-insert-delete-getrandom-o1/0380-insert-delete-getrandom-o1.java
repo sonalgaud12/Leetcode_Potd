@@ -11,7 +11,7 @@ class RandomizedSet {
     private HashMap<Integer, Integer> map;
     private Random random;
 
-    // Initialize your data structure here.
+    // Initialize data structure here.
     public RandomizedSet() {
         
         list = new ArrayList<>();
