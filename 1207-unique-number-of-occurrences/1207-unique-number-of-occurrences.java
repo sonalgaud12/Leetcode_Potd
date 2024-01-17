@@ -1,3 +1,9 @@
+/*
+Time complexity: O(n)
+Space complexity: O(1)
+*/
+
+
 class Solution {
     public boolean uniqueOccurrences(int[] arr) {
     
@@ -20,3 +26,17 @@ class Solution {
         return true;
     }
 }
+
+
+/*
+Question breakdown: 
+As stated in the question that we will be given a array inn which there will be numbers 
+we have the count the occurance of an individual number if the occurance value is unique 
+then we can return true else return false
+
+Approach: As we see we need the number as well as the value of their occurance we can simply assume 
+HashMAp. we will count and store, later creat a set to store the frequency of the number
+if all the frequency is unique then will return true or else false.
+
+
+*/
