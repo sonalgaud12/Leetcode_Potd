@@ -1,19 +1,25 @@
+/*
+Time Complexity: O(n*n)
+Space Complexity: O(1)
+*/
 class Solution {
     public int minFallingPathSum(int[][] matrix) {
-       int m = matrix.length;
-        int[][] t = new int[m][m];
-        for (int col = 0; col < m; col++) {
-            t[0][col] = matrix[0][col];
+       int mat = matrix.length;
+        
+        int[][] t = new int[mat][mat];
+        // iterating over the matrix colcumn
+        for (int colcumn = 0; colcumn < mat; colcumn++) {
+            t[0][colcumn] = matrix[0][colcumn];
         }
-
-        for (int row = 1; row < m; row++) {
-            for (int col = 0; col < m; col++) {
-                t[row][col] = matrix[row][col] + Math.min(t[row - 1][col],
-                        Math.min(t[row - 1][Math.max(0, col - 1)], t[row - 1][Math.min(m - 1, col + 1)])
+        // iterating over the matrix row
+        for (int row = 1; row < mat; row++) {
+            for (int colcumn = 0; col < mat; col++) {
+                // getting the minimum value 
+                t[row][colcumn] = matrix[row][colcumn] + Math.min(t[row - 1][colcumn], Math.min(t[row - 1][Math.max(0, colcumn - 1)], t[row - 1][Math.min(mat - 1, colcumn + 1)])
                 );
             }
         }
 
-        return Arrays.stream(t[m - 1]).min().orElse(0);  
+        return Arrays.stream(t[mat - 1]).min().orElse(0);  
     }
 }
