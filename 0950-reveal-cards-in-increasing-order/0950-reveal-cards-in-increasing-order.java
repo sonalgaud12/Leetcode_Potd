@@ -1,7 +1,7 @@
 class Solution {
     public int[] deckRevealedIncreasing(int[] deck) {
         
-        int n = deck.length;
+       int n = deck.length;
         int arr[] = new int[n];
         Queue<Integer> que = new LinkedList<>();
         Arrays.sort(deck);
@@ -10,11 +10,11 @@ class Solution {
             que.add(i);
         }
         
-        int i=0;
+        int j=0;
         while(!que.isEmpty()){
-            arr[que.poll()] = deck[i++];
+            arr[que.poll()] = deck[j++];
             
-            if(!que.isEmpty()) que.add(que.poll());  
+            if(!que.isEmpty()) que.add(que.poll());
             
             
         }
@@ -22,5 +22,6 @@ class Solution {
         
     }
 }
+
 
 
