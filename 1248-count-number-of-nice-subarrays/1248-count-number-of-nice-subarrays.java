@@ -6,13 +6,13 @@ class Solution {
         cnt[0] = 1;
         int ans = 0, t = 0;
         for (int num : nums) {
-            t += num & 1;
-            if (t - k >= 0) {
-                ans += cnt[t - k];
+            t += num & 1; // 0+1 1+1 2+1
+            if (t - k >= 0) { // 1-3 2-3 3-3
+                ans += cnt[t - k]; // 1 + 1+0
             }
-            cnt[t]++;
+            cnt[t]++; //1 2 3
         }
-        return ans;
+        return ans; //2
         
     }
 }
